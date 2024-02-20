@@ -123,9 +123,9 @@ the scripts used in the project.
 The template comes with built-in support for 3 flavors. Each flavor uses a different `main.dart`
 file.
 
-- Dev - [`main_dev.dart`](app/lib/entrypoints/main_dev.dart)
-- QA - [`main_qa.dart`](app/lib/entrypoints/main_qa.dart)
-- Prod - [`main_prod.dart`](app/lib/entrypoints/main_prod.dart)
+- Dev - [`main_dev.dart`](apps/movie_app/lib/main/main_dev.dart)
+- QA - [`main_qa.dart`](apps/movie_app/lib/main/main_qa.dart)
+- Prod - [`main_prod.dart`](apps/movie_app/lib/main/main_prod.dart)
 
 You can setup any environment specific values in the respective `main.dart` files.
 
