@@ -113,20 +113,15 @@ The architecture is separated into the following layers
 
 The architecture is separated into the following layers
 
-- [`app`](app/): All UI and state management elements like widgets, pages and view models.
-- [`core`](./core): Core business implementation
-    - [`domain`](core/domain): Use cases for individual pieces of work.
-    - [`data`](core/data): Repositories to manage various data sources.
-    - [`shared`](core/shared): Common items for core module shared between [`domain`](core/domain)
-      & [`data`](core/data).
-- [`infrastructure`](./infrastructure): Services provide access to external elements such as
-  databases, apis, etc.
-    - [`database-floor`](infrastructure/database-floor): [Floor](https://pub.dev/packages/floor) as
-      the Database provider
-    - [`network-retrofit`](infrastructure/network-retrofit): [Retrofit](https://pub.dev/packages/retrofit)
-      as the Database provider
+- [`apps`](apps/): It conatian all the apps.
+    - [`domain`](apps/domain): Use cases for individual pieces of work.
+    - [`data`](apps/data): Repositories to manage various data sources.
+    - [`presentation`](apps/presentation): UI for mobile, tab and web it also containt he statemangment techniques(i.e cubit)
+-['pacakges'](packages/)
+    - [`core`](packages/core): Core business implementation.
+    - - [`core`](packages/core_flutter): Core business implementation.
 
-Each layer has a `di` directory to manage Dependency Injection for that layer.
+Each app has a `di` directory to manage Dependency Injection for that layer.
 
 Read the [dependency management documentation](dependency-injection/README.md) to learn about all
 the scripts used in the project.
@@ -154,19 +149,6 @@ script**
 Read the [scripts documentation](app/scripts/README.md) to learn about all the scripts used in the
 project.
 
-### Entities
-
-The layers  `core` and `services provider` within infrastructure each have an `model` directory.
-
-- [`app layer`](https://github.com/wednesday-solutions/flutter_template/blob/main/lib/presentation/entity):
-  We consume the same models used from core/domain as domain wont change in the case of frontend
-  apps.
-- [`core/shared/lib/src/model`](core/shared/lib/src/model): Model classes for performing business
-  logic manipulations. They act as an abstraction to hide the local and remote data models.
-- [`infrastructure/servicename/model`](https://github.com/wednesday-solutions/flutter_template/blob/main/lib/services/entity):
-  Respective service provider contains local models (data classes for the database) and remote
-  models (data classes for the api).
-
 ## Hide Generated Files (Optional)
 
 In-order to hide generated files, navigate to `Android Studio` -> `Preferences` -> `Editor`
@@ -191,21 +173,16 @@ dart
 
 ## Features
 
-- [Hexagonal Clean Architecture](./wiki/ARCHITECTURE.md)
+- Clean Architecture
 - Adhering to SOLID Principles
 - Repository Pattern for code separations
-- [Dependency Injection](./dependency-injection/)
+- Dependency Injection
 - Network Layer
 - Data Layer
-- Better Logging
-- [Automatic Error Handling](https://github.com/faiyyazs/flutter-errors)
+- Automatic Error Handling
 - Built-in support for 3 [`flavors`](https://docs.flutter.dev/deployment/flavors) - `dev`, `qa`
   and `prod`.
 - Unit & Integration Tests
-- CI for build release
-- Use SonarQube Analysis & generate reports
-- Crashlytics/Analytics
-- [Theme Manager](./themes/)
 - [Localisation](./localisation/)
 - Routing/Navigations
 - [Responsive Framework](./wiki/responsive-framework/RESPONSIVE_FRAMEWORK.md)
@@ -217,19 +194,12 @@ dart
 
 ## Libraries & Tools Used
 
-- Dependency Injection - [Injectable](https://pub.dev/packages/injectable)
-  & [GetIt](https://pub.dev/packages/get_it)
+- Dependency Injection - [GetIt](https://pub.dev/packages/get_it)
 - Network - [Retrofit](https://pub.dev/packages/retrofit)
-- Database - [Floor](https://pub.dev/packages/floor)
-- Reactive Caching and Data-binding Framework - [RiverPod](https://riverpod.dev/)
-- Bloc Framework - [Bloc](https://pub.dev/packages/flutter_bloc)
-- Code Analysis - [SonarQube](https://sonarcloud.io/)
-- Crashlytics - [Firebase](https://firebase.google.com/)
-- Continuous Integration -  [Github Action](https://github.com/features/actions)
+- Database - [Floor](https://pub.dev/packages/hive)=
 - [Navigation](https://docs.flutter.dev/development/ui/navigation)
 - Localisation - [Flutter Intl](https://www.jetbrains.com/help/idea/managing-plugins.html)
 - [Responsive Farmework](https://pub.dev/packages/responsive_framework)
-- [Exception/Error Handling] (https://github.com/faiyyazs/flutter-errors)
 
 ## Modules
 
@@ -240,192 +210,16 @@ automatically, here is a list of available modules:
 
 | Name                                                   | Description                                                  |
 | ------------------------------------------------------ | ------------------------------------------------------------ |
-| [app](./app)                                           | A module containing boilerplate app view implementation      |
-| [core](./core)                                         | A module containing core business implementation of the product which includes data,domain & shared modules |
-| [dependency-injection](./dependency-injection)         | A module that contains classes to achieve DI across multiple modules  based on `injectable` & `getIt` |
-| [infrastructure](./infrastructure)                     | A module that includes all external data providers/adapters which are outbound adapters to `core ` module/ports. Further includes `database-floor`& `network-retrofit`as external ports. |
-| [localisation](./localisation)                         | A module containing translation data                         |
-| [statemanagement-bloc](./statemanagement-bloc)         | A module which contains `bloc` used as a state management tool. To be used with [statemanagement-core](./statemanagement-core) |
-| [statemanagement-core](./statemanagement-core)         | A module which includes base classes required to support state management in flutter. |
-| [statemanagement-riverpod](./statemanagement-riverpod) | A module which contains `riverpod` used as a state management tool. To be used with  [statemanagement-core](./statemanagement-core) |
-| [themes](./themes)                                     | A library that contains theme manager implementation         |
+| [app](./app)                                           | A module containing apps |
+| [core](./core)                                         | A module containing core business implementation of the product |
+| [dependency-injection](./dependency-injection)         | A module that contains classes to achieve DI across multiple modules  based on `getIt` |
+| [localisation](./localisation)                         | A module containing translation data          |
 
-## Continuous Integration and Deployment
-
-The Flutter template comes with built-in support for CI/CD using Github Actions.
-
-### CI
-
-The [`CI`](.github/workflows/ci.yml) workflow performs the following checks on every pull request:
-
-- Lints the code with `flutter analyze`.
-- Runs tests using `flutter test`.
-- Build the android app.
-- Build the ios app.
-
-### CD
-
-The [`CD`](.github/workflows/cd.yml) workflow performs the following actions:
-
-- Bump the build number by 1.
-- Build a signed release apk.
-- ~~Upload apk to the app center.~~
-- Upload apk as artifact to release tag.
-- ~~Build a signed iOS app.~~
-- ~~Upload ipa to testflight.~~
-- Upload the ipa as an artifact to release the tag.
-- Commit the updated version to git.
-
-### Android CD setup
-
-For the android CD workflow to run, we need to perform the following setup steps:
-
-- Follow these instructions
-  to [generate an upload keystore](https://developer.android.com/studio/publish/app-signing#generate-key)
-  . Note down the `store password`, `key alias` and `key password`. You will need these in later
-  steps.
-- Use `openssl` to convert the `jks` file to `Base64`.
-
-```bash
-openssl base64 < app_key.jks | tr -d '\n' | tee app_key_encoded.txt
-```
-
-- Store the `base64` output
-  on [`Github Secrets`](https://docs.github.com/en/actions/security-guides/encrypted-secrets) with
-  the key name `KEYSTORE`.
-- Save the `store password` in github secrets with the key name `RELEASE_STORE_PASSWORD`.
-- Save the `key alias` in github secrets with the key name `RELEASE_KEY_ALIAS`.
-- Save the `key password` in github secrets with the key name `RELEASE_KEY_PASSWORD`.
-- [Create a distribution on app center](https://docs.microsoft.com/en-us/appcenter/distribution/)
-  and get the upload key. You can get it from appcenter.ms/settings.
-- Save the app center upload key on github secrets with key name `APP_CENTER_TOKEN`.
-
-### IOS CD Setup
-
-For the IOS job in the `cd.yml` to run, you first need to have a
-valid [Apple Developer Account](https://developer.apple.com/).If you don't have it yet, please
-create one before proceeding further
-
-We will divide the guide into steps so that it is easier to understand
-
-#### Step 1: Setup on the AppStore
-
-- Register your `Bundle ID`. You can view the official Flutter
-  guide [here](https://docs.flutter.dev/deployment/ios#register-a-bundle-id)
-
-> CAUTION: Apple doesn't allow underscore in the bundle identifier. Read about valid identifiers [here](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier)
-
-- Create an application on the AppStore Connect Portal. Check out the official
-  guide [here](https://docs.flutter.dev/deployment/ios#create-an-application-record-on-app-store-connect)
-
-#### Step 2: Getting a Distribution Certificate and Provisioning Profile
-
-- Create a `Distribution Certificate` for your machine locally once. You can refer
-  to [this](https://support.magplus.com/hc/en-us/articles/203808748-iOS-Creating-a-Distribution-Certificate-and-p12-File)
-  guide. Download the `.p12` file for use later. Remember the password used to create this
-  certificate as we will need this later
-- Create a `Provisioning Profile` for your `Bundle ID` you registered above. You can refer
-  to [this](https://support.staffbase.com/hc/en-us/articles/115003598691-Creating-the-iOS-Provisioning-Profiles)
-  guide. Download the profile for use later.
-
-#### Step 3: Getting the options.plist
-
-- In the following template
-
-    - Replace `BUNDLE ID` with your `Bundle Identifier` (You got that already from Step 1)
-    - Replace `PROVISIONING PROFILE NAME` with your Provisioning Profile Name (You already created
-      one in Step 2, use that)
-    - Replace `TEAM_ID` with your team id. Look at [this](https://stackoverflow.com/a/18727947)
-      answer on "How to find your Team ID"
-
-<details>
-<summary><i>Click to View Template</i></summary>
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-    <dict>
-        <key>generateAppStoreInformation</key>
-        <false />
-        <key>manageAppVersionAndBuildNumber</key>
-        <true />
-        <key>method</key>
-        <string>app-store</string>
-        <key>provisioningProfiles</key>
-        <dict>
-            <key>BUNDLE-ID</key>
-            <string>PROVISION PROFILE NAME</string>
-        </dict>
-        <key>signingCertificate</key>
-        <string>Apple Distribution</string>
-        <key>signingStyle</key>
-        <string>manual</string>
-        <key>stripSwiftSymbols</key>
-        <true />
-        <key>teamID</key>
-        <string>TEAM_ID</string>
-        <key>uploadBitcode</key>
-        <false />
-        <key>uploadSymbols</key>
-        <true />
-    </dict>
-</plist>
-```
-
-</details>
-
-Create a new file called `options.plist` and save the above contents in that file
-
-#### Step 4: Making an app specific password
-
-- Read the [official guide](https://support.apple.com/en-us/HT204397) to create an app specific
-  password and remember it(;P)
-- The pipeline uses this password to upload an ipa to testflight
-
-#### Step 5: Bringing it all together
-
-- Add the following keys to
-
-Github Secrets
-
-- `BUILD_CERTIFICATE_BASE64` : The base64 of the p12 file we generated(Step 2)
-- `P12_PASSWORD`: The password of the p12 certificate generated above in Step 2
-- `BUILD_PROVISION_PROFILE_BASE64`: The provisioning profile in base64(Step 2)
-- `KEYCHAIN_PASSWORD` : The password used to store the keychain in the local keystore of the Github
-  Runner(Any random value)
-- `IOS_PLIST`: The options.plist file needed to make an ipa out of the xcarchive generated by
-  flutter(Step 3)
-- `APPSTORE_PASSWORD`: The password passed to altool to upload the ipa to the store(Step 4)
-
-- To generate a base64 string, use the following command, replacing `FILENAME` with your filename
-
-```bash
-openssl base64 < FILENAME | tr -d '\n' | tee ENCODED_FILENAME.txt
-```
-
-### Pushing to protected branches
-
-- If the branches that you will be running CD on are protected, you will need to use
-  a [`Personal Access Token (PAT)`](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-  to commit the version changes.
-- After creating the `PAT`, exclude the account that the token belongs to from
-  the [`branch protection rules`](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)
-  .
-- Save the token in github secrets and update the key name in the `cd.yml` file under
-  each `checkout` action.
-- Since our `CD` workflow is triggered on a push, and we create a new commit in the workflow itself,
-  the commit message created by the `CD` workflow includes `[skip ci]` tag so that the workflow does
-  not end up in an infinite loop.Read more about
-  this [here](https://docs.github.com/en/actions/managing-workflow-runs/skipping-workflow-runs)
-
-**If you do not plan to use the CD workflow on protected branches, you can remove the token part
-from the checkout actions.**
 
 ## Upcoming Improvements
 
 Checklist of all
-upcoming [enhancements](https://github.com/NeoSOFT-Technologies/mobile-flutter/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Aenhancement)
+upcoming [enhancements](https://github.com/saifuzzafar/flutter_template_v1/issues)
 .
 
 ## Contributing to this Project
