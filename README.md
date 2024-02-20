@@ -8,20 +8,12 @@
 - [Getting Started](#getting-started)
     * [Requirements](#requirements)
     * [Setup](#setup)
-    * [App Secrets](#app-secrets)
-- [Change Package Name](#change-package-name)
 - [Architecture](#architecture)
 - [Running/Debugger](#flavors)
     - [Flavors](#flavors)
 - [Features](#Features)
-- [Library / Dependency](#Libraries-&-Tools-Used)
 - [Modules](#Modules)
     * [List Default Modules](#list-default-modules)
-- [Continuous Integration and Deployment](#Continuous-Integration-and-Deployment)
-    - [CI](#CI)
-    - [CD](#CD)
-    - [Android CD setup](#Android-CD-setup)
-    - [IOS CD setup](#IOS-CD-setup)
 
 ## Overview
 
