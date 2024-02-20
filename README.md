@@ -106,12 +106,12 @@ The architecture is separated into the following layers
 The architecture is separated into the following layers
 
 - [`apps`](apps/): It conatian all the apps.
-    - [`domain`](apps/domain): Use cases for individual pieces of work.
-    - [`data`](apps/data): Repositories to manage various data sources.
-    - [`presentation`](apps/presentation): UI for mobile, tab and web it also containt he statemangment techniques(i.e cubit)
--['pacakges'](packages/)
+    - [`domain`](apps/movie_app/domain): Use cases for individual pieces of work.
+    - [`data`](apps/movie_ap/data): Repositories to manage various data sources.
+    - [`presentation`](apps/movie_ap/presentation): UI for mobile, tab and web it also containt he statemangment techniques(i.e cubit)
+-[`pacakges`](packages/): It conatian the cuatom packages which will be used by all apps.
     - [`core`](packages/core): Core business implementation.
-    - - [`core`](packages/core_flutter): Core business implementation.
+    - [`core`](packages/core_flutter): Core business implementation.
 
 Each app has a `di` directory to manage Dependency Injection for that layer.
 
