@@ -1,0 +1,23 @@
+name: flutter_template_v1
+
+packages:
+  - packages/*
+  - apps/*
+
+scripts:
+  pub_get:
+    exec: flutter pub get
+    description: Run `flutter pub get` in all packages
+
+  clean:
+    exec: flutter clean
+    description: Run `flutter clean` in all packages
+
+  generate_files:
+    run: |
+      flutter pub global run melos exec \
+        "dart run build_runner build --delete-conflicting-outputs"
+    description: Run `dart run build_runner build` in all packages
+    packageFilters:
+      dependsOn:
+        - build_runner
