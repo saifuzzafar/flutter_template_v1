@@ -9,7 +9,7 @@
     * [Requirements](#requirements)
     * [Setup](#setup)
 - [Architecture](#architecture)
-    * [Mono Repo Architecture](#monorepoarchitecture)
+    * [Mono Repo Architecture](#mono-repo-architecture)
     * [Layers](#layers)
 - [Running/Debugger](#flavors)
     - [Flavors](#flavors)
@@ -106,8 +106,6 @@ In addition to the Clean Architecture principles, this project extends its archi
 By leveraging the mono repo architecture, developers can efficiently manage dependencies, share code between projects, and ensure consistency across different applications developed within the same repository.
 
 ### Layers
-
-The architecture is separated into the following layers
 
 The architecture is separated into the following layers
 
