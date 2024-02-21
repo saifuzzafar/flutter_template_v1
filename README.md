@@ -9,7 +9,7 @@
     * [Requirements](#requirements)
     * [Setup](#setup)
 - [Architecture](#architecture)
-    * [Mono Repo Architecture](#mono-repo-architecture)
+    * [Mono Repo Architecture Extension](#mono-repo-architecture-extension)
     * [Layers](#layers)
 - [Running/Debugger](#flavors)
     - [Flavors](#flavors)
