@@ -9,6 +9,8 @@
     * [Requirements](#requirements)
     * [Setup](#setup)
 - [Architecture](#architecture)
+    * [Mono Repo Architecture](#monorepoarchitecture)
+    * [Layers](#layers)
 - [Running/Debugger](#flavors)
     - [Flavors](#flavors)
 - [Features](#Features)
@@ -96,8 +98,12 @@ melos run generate_files
 The architecture of the template facilitates separation of concerns and avoids tight coupling
 between it's various layers. The goal is to have the ability to make changes to individual app's and packages
 without affecting the other app. This architecture is an adaptation of concepts
-from [`The Clean Architecture`](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-.
+from [`The Clean Architecture`](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
+
+### Mono Repo Architecture Extension
+In addition to the Clean Architecture principles, this project extends its architecture to embrace the mono repo architecture paradigm. This extension enables the development of multiple apps within a single project, fostering modularity, scalability, and ease of management.
+
+By leveraging the mono repo architecture, developers can efficiently manage dependencies, share code between projects, and ensure consistency across different applications developed within the same repository.
 
 ### Layers
 
