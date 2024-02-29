@@ -8,14 +8,18 @@
 - [Getting Started](#getting-started)
     * [Requirements](#requirements)
     * [Setup](#setup)
+- [Change Package Name](#change-package-name)
+- [Create App](#create-app)
 - [Architecture](#architecture)
     * [Mono Repo Architecture Extension](#mono-repo-architecture-extension)
     * [Layers](#layers)
 - [Running/Debugger](#flavors)
     - [Flavors](#flavors)
-- [Features](#Features)
-- [Modules](#Modules)
+- [Accelerate Development Process](#accelerate-development-process)
+- [Features](#features)
+- [Modules](#modules)
     * [List Default Modules](#list-default-modules)
+-[Ongoing Enhancements](#ongoing-enhancements)
 
 ## Overview
 
@@ -92,6 +96,18 @@ melos run pub_get
 ```bash
 melos run generate_files
 ```
+## Change Package Name
+
+By default package/project names:
+
+`flutter_template_v1`
+
+To change the package name, simply search for all `flutter_template_v1`, then replace it with
+the new package name.
+
+## Create App
+As this is mono repo project you can create multiple apps inside apps folder.
+for example: `flutter create your_app_name`
 
 ## Architecture
 
@@ -146,24 +162,28 @@ script**
 Read the [scripts documentation](app/scripts/README.md) to learn about all the scripts used in the
 project.
 
+## Accelerate Development Process
+### 1. Automated Module Generation:
+As you know, the clean architecture of separation of concern means we need to create multiple layers with folders and files in them. So to speed up this process, we have a script called generate_modules. This script will generate all 3 layers (presentation, domain, and data) with the necessary folder and file. Dart files will also contain the starter class. Developers can save a lot of time by generating modules from the script, and they can focus on developing the business logic.
+### 2. Code Generator Integration:
+Another good way to save time is to use the retrofit generator, which generates the API call methods for you. JSON serializable generates the entity classes for you to parse the API response. You can also generate the API request JSON parameters. 
+
 ## Hide Generated Files (Optional)
 
 In-order to hide generated files, navigate to `Android Studio` -> `Preferences` -> `Editor`
 -> `File Types` and paste the below lines under `ignore files and folders` section:
 
 ```dart
-*.config.dart;*.inject.summary;*.inject.dart;*.g.dart;
+*.config.dart;*.g.dart;
 ```
 
 In Visual Studio Code, navigate to `Preferences` -> `Settings` and search for `Files:Exclude`. Add
 the following patterns:
 
 ```dart
-** /*.inject.summary
+
 **/
-*
-.inject.
-dart
+
 *
 * /*.g.dart
 ```
@@ -193,8 +213,8 @@ dart
 
 - Dependency Injection - [GetIt](https://pub.dev/packages/get_it)
 - Network - [Retrofit](https://pub.dev/packages/retrofit)
-- Database - [Floor](https://pub.dev/packages/hive)=
-- [Navigation](https://docs.flutter.dev/development/ui/navigation)
+- Database - [Hive](https://pub.dev/packages/hive)
+- Navigation - [Go Router](https://pub.dev/packages/go_router)
 - Localisation - [Flutter Intl](https://www.jetbrains.com/help/idea/managing-plugins.html)
 - [Responsive Farmework](https://pub.dev/packages/responsive_framework)
 
@@ -212,7 +232,15 @@ automatically, here is a list of available modules:
 | [dependency-injection](./dependency-injection)         | A module that contains classes to achieve DI across multiple modules  based on `getIt` |
 | [localisation](./localisation)                         | A module containing translation data          |
 
-
+## Ongoing Enhancements
+- Error/exception handling.
+- Localisation improvement.
+- Model class segregation.
+- Code generator to save time.
+- Assets management.
+- Use riverpod instead of getIt for DI.
+- Use riverpod instead of Cubit.
+  
 ## Upcoming Improvements
 
 Checklist of all
