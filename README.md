@@ -1,4 +1,4 @@
-# Flutter BoilerPlate
+# Flutter Template
 
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/saifuzzafar/flutter_template_v1) [![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/saifuzzafar/flutter_template_v1)
 
@@ -27,7 +27,7 @@
 applications for mobile, web, desktop, and embedded devices from a single codebase.
 
 This is a micro-framework for Flutter which is designed to help simplify developing apps. Every
-project provides a simple boilerplate to help you build apps easier.
+project provides a simple Template to help you build apps easier.
 
 This project is open source, we welcome any contributions.
 
@@ -35,7 +35,7 @@ This project is open source, we welcome any contributions.
 
 #### Requirements
 
-Here are some things you need to prepare before this Boilerplate setup:
+Here are some things you need to prepare before this Template setup:
 
 1. Flutter SDK Stable (Latest Version) [Install](https://flutter.dev/docs/get-started/install)
 2. Android Studio [Install](https://developer.android.com/studio)
@@ -49,9 +49,9 @@ Here are some things you need to prepare before this Boilerplate setup:
 
 #### Setup
 
-To set up your project based on this boilerplate, you need to do some of the steps you need to do.
+To set up your project based on this Template, you need to do some of the steps you need to do.
 
-Here are the steps for setting up a Project with this Flutter-Works boilerplate:
+Here are the steps for setting up a Project with this Flutter-Works Template:
 
 **Step 1:**
 
@@ -163,10 +163,13 @@ Read the [scripts documentation](app/scripts/README.md) to learn about all the s
 project.
 
 ## Accelerate Development Process
-### 1. Automated Module Generation:
+### 1. Module Generator:
 As you know, the clean architecture of separation of concern means we need to create multiple layers with folders and files in them. So to speed up this process, we have a script called generate_modules. This script will generate all 3 layers (presentation, domain, and data) with the necessary folder and file. Dart files will also contain the starter class. Developers can save a lot of time by generating modules from the script, and they can focus on developing the business logic.
-### 2. Code Generator Integration:
+### 2. Code Generator:
 Another good way to save time is to use the retrofit generator, which generates the API call methods for you. JSON serializable generates the entity classes for you to parse the API response. You can also generate the API request JSON parameters. 
+### 3. Assets Generator:
+In this template we are using [flutter_gen](https://pub.dev/packages/flutter_gen) to genrate the png, svg and fonts.
+By doing this developers dont need to main the the separate file for image and fonts urls.
 
 ## Hide Generated Files (Optional)
 
@@ -222,7 +225,7 @@ the following patterns:
 
 ## List of Default Modules
 
-By default when you use this boilerplate, there are several modules that are installed
+By default when you use this Template, there are several modules that are installed
 automatically, here is a list of available modules:
 
 | Name                                                   | Description                                                  |
