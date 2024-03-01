@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+/// Base class for creating pages in a Flutter application.
+///
+/// Subclasses should extend [BasePageState] and provide their own state class
+/// by specifying the type parameter `T`.
+///
+/// Provides common page features such as scaffold setup, app bar, drawer,
+/// bottom navigation bar, etc.
+
 abstract class BasePage<T extends BasePageState> extends StatefulWidget {
   const BasePage({super.key});
 
@@ -7,8 +15,14 @@ abstract class BasePage<T extends BasePageState> extends StatefulWidget {
   T createState();
 }
 
+/// Abstract base class for the state of pages in a Flutter application.
 abstract class BasePageState extends State {}
 
+/// Abstract base class extending [BasePageState] with additional functionality.
+///
+/// Subclasses of [BaseStatefulPage] automatically include a [GlobalKey] for
+/// the scaffold state, scaffold setup, app bar, drawer, bottom navigation bar,
+/// and other common UI components.
 abstract class BaseStatefulPage extends BasePageState {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 

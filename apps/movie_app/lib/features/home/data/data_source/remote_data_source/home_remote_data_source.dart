@@ -3,6 +3,7 @@ import 'package:core/network/safe_api_call/safe_api_call.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:movie_app/features/home/data/api_service/home_api_service.dart';
 import 'package:movie_app/features/home/data/endpoints_constants/home_options.dart';
+import 'package:movie_app/features/home/domain/model/home/genre_model.dart';
 import 'package:movie_app/features/home/domain/model/home/movie_details_model.dart';
 import 'package:movie_app/features/home/domain/model/home/now_playing_model.dart';
 import 'package:movie_app/features/home/domain/model/home/popular_movies_model.dart';
@@ -25,7 +26,8 @@ class HomeRemoteDataSource {
       return Right(TopRatedMoviesModel(
           page: r.data.page,
           results: r.data.results!
-              .map((e) => TopRatedMoviesResultModel(id: e.id, title: e.title))
+              .map((e) => TopRatedMoviesResultModel(
+                  id: e.id, title: e.title, posterPath: e.posterPath))
               .toList(),
           totalPages: r.data.totalPages,
           totalResults: r.data.totalResults));
@@ -34,13 +36,14 @@ class HomeRemoteDataSource {
 
   Future<Either<NetworkError, PopularMoviesModel>> getPopularMovies(
       BaseMovieParams params) async {
-    final response = await safeApiCall(_homeApiService.getTopRatedMovies(
+    final response = await safeApiCall(_homeApiService.getPopularMovies(
         commonOptions: baseToRequestParams(params: params)));
     return response.fold((l) => left(l), (r) {
       return Right(PopularMoviesModel(
           page: r.data.page,
           results: r.data.results!
-              .map((e) => PopularMoviesResultModel(id: e.id, title: e.title))
+              .map((e) => PopularMoviesResultModel(
+                  id: e.id, title: e.title, posterPath: e.posterPath))
               .toList(),
           totalPages: r.data.totalPages,
           totalResults: r.data.totalResults));
@@ -49,13 +52,14 @@ class HomeRemoteDataSource {
 
   Future<Either<NetworkError, NowPlayingMoviesModel>> getNowPlayingMovies(
       BaseMovieParams params) async {
-    final response = await safeApiCall(_homeApiService.getTopRatedMovies(
+    final response = await safeApiCall(_homeApiService.getNowPlayingMovies(
         commonOptions: baseToRequestParams(params: params)));
     return response.fold((l) => left(l), (r) {
       return Right(NowPlayingMoviesModel(
           page: r.data.page,
           results: r.data.results!
-              .map((e) => NowPlayingMoviesResultModel(id: e.id, title: e.title))
+              .map((e) => NowPlayingMoviesResultModel(
+                  id: e.id, title: e.title, posterPath: e.posterPath))
               .toList(),
           totalPages: r.data.totalPages,
           totalResults: r.data.totalResults));
@@ -64,13 +68,14 @@ class HomeRemoteDataSource {
 
   Future<Either<NetworkError, UpComingMoviesModel>> getUpComingMovies(
       BaseMovieParams params) async {
-    final response = await safeApiCall(_homeApiService.getTopRatedMovies(
+    final response = await safeApiCall(_homeApiService.getUpComingMovies(
         commonOptions: baseToRequestParams(params: params)));
     return response.fold((l) => left(l), (r) {
       return Right(UpComingMoviesModel(
           page: r.data.page,
           results: r.data.results!
-              .map((e) => UpComingResultModel(id: e.id, title: e.title))
+              .map((e) => UpComingResultModel(
+                  id: e.id, title: e.title, posterPath: e.posterPath))
               .toList(),
           totalPages: r.data.totalPages,
           totalResults: r.data.totalResults));
@@ -79,23 +84,26 @@ class HomeRemoteDataSource {
 
   Future<Either<NetworkError, MovieDetailsModel>> getMovieDetails(
       BaseMovieParams params) async {
-    final response = await safeApiCall(_homeApiService.getTopRatedMovies(
+    final response = await safeApiCall(_homeApiService.getMovieDetails(
         commonOptions: baseToRequestParams(params: params)));
     return response.fold((l) => left(l), (r) {
       return Right(MovieDetailsModel(id: r.data.page));
     });
   }
 
-  // Future<Either<NetworkError, GenreListModel>> getGenreList(
-  //     BaseMovieParams params) async {
-  //   final response = await safeApiCall(_homeApiService.getTopRatedMovies(
-  //       commonOptions: baseToRequestParams(params: params)));
-  //   return response.fold((l) => left(l), (r) {
-  //     return Right(GenreListModel(
-  //
-  //     ));
-  //   });
-  // }
+  Future<Either<NetworkError, GenreListModel>> getGenreList(
+      BaseMovieParams params) async {
+    final response = await safeApiCall(_homeApiService.getGenreList(
+        commonOptions: baseToRequestParams(params: params)));
+    return response.fold((l) => left(l), (r) {
+      return Right(GenreListModel(
+          genres: r.data.genres == null
+              ? []
+              : r.data.genres!
+                  .map((e) => GenreListResultModel(id: e.id, name: e.name))
+                  .toList()));
+    });
+  }
 
   CommonRequestOptions baseToRequestParams({required BaseMovieParams params}) {
     return CommonRequestOptions(language: params.language, page: params.page);

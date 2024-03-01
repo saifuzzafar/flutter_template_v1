@@ -19,42 +19,36 @@ class HomeRepositoryImpl implements HomeRepository {
   @override
   Future<Either<NetworkError, GenreListModel>> getGenreList(
       BaseMovieParams params) {
-    // TODO: implement getGenreList
-    throw UnimplementedError();
+    return _homeRemoteDataSource.getGenreList(params);
   }
 
   @override
   Future<Either<NetworkError, MovieDetailsModel>> getMovieDetails(
       BaseMovieParams params) {
-    // TODO: implement getMovieDetails
-    throw UnimplementedError();
+    return _homeRemoteDataSource.getMovieDetails(params);
   }
 
   @override
   Future<Either<NetworkError, NowPlayingMoviesModel>> getNowPlayingMovies(
       BaseMovieParams params) {
-    // TODO: implement getNowPlayingMovies
-    throw UnimplementedError();
+    return _homeRemoteDataSource.getNowPlayingMovies(params);
   }
 
   @override
   Future<Either<NetworkError, PopularMoviesModel>> getPopularMovies(
       BaseMovieParams params) {
-    // TODO: implement getPopularMovies
-    throw UnimplementedError();
+    return _homeRemoteDataSource.getPopularMovies(params);
   }
 
   @override
   Future<Either<NetworkError, TopRatedMoviesModel>> getTopRatedMovies(
       BaseMovieParams params) {
-    // TODO: implement getTopRatedMovies
-    throw UnimplementedError();
+    return _homeRemoteDataSource.getTopRatedMovies(params);
   }
 
   @override
   Future<Either<NetworkError, UpComingMoviesModel>> getUpComingMovies(
       BaseMovieParams params) {
-    // TODO: implement getUpComingMovies
-    throw UnimplementedError();
+    return _homeRemoteDataSource.getUpComingMovies(params);
   }
 }

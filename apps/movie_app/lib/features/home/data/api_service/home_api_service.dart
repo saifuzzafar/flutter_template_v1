@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:movie_app/features/home/data/endpoints_constants/home_endpoints.dart';
 import 'package:movie_app/features/home/data/endpoints_constants/home_options.dart';
+import 'package:movie_app/features/home/data/entity/genre_list_entity.dart';
 import 'package:movie_app/features/home/data/entity/top_rated_movies_entity.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -35,7 +36,7 @@ abstract class HomeApiService {
     required CommonRequestOptions commonOptions,
   });
   @GET(HomeEndpoints.genreList)
-  Future<HttpResponse<TopRatedMoviesEntity>> getGenreList({
+  Future<HttpResponse<GenreEntity>> getGenreList({
     required CommonRequestOptions commonOptions,
   });
 }

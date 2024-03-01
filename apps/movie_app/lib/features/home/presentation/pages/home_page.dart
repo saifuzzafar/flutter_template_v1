@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/di/app_provider.dart';
 import 'package:movie_app/features/home/data/api_service/home_api_service.dart';
 import 'package:movie_app/features/home/data/data_source/remote_data_source/home_remote_data_source.dart';
+import 'package:movie_app/features/home/di/home_providers.dart';
 import 'package:movie_app/features/home/domain/repository/home_repository.dart';
-import 'package:movie_app/features/home/domain/use_case/home_use_case.dart';
-import 'package:movie_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:movie_app/features/home/presentation/pages/home_page_mobile_view.dart';
 import 'package:movie_app/features/home/presentation/pages/home_page_tab_view.dart';
 import 'package:movie_app/features/home/presentation/pages/home_page_web_view.dart';
@@ -22,6 +21,17 @@ class HomePage extends BasePage<HomePageState> {
 /// This class [HomePageState] which consume by HomePage as page state
 class HomePageState extends BaseStatefulPage {
   @override
+  void initState() {
+    super.initState();
+
+    nowPlayingCubit.fetchNowPlaying();
+    genreCubit.fetchGenre();
+    topRatedMoviesCubit.fetchTopRated();
+    popularMoviesCubit.fetchPopularMovies();
+    upcomingMoviesCubit.fetchUpcomingMovies();
+  }
+
+  @override
   Widget buildView(BuildContext context) {
     return DeviceDetectorWidget(
       webSiteView: () => const HomePageWebView(),
@@ -35,8 +45,7 @@ class HomePageState extends BaseStatefulPage {
     getIt.unregister<HomeApiService>();
     getIt.unregister<HomeRemoteDataSource>();
     getIt.unregister<HomeRepository>();
-    getIt.unregister<HomeUseCase>();
-    getIt.unregister<HomeCubit>();
+
     super.dispose();
   }
 }

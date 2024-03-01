@@ -13,6 +13,10 @@ scripts:
     exec: flutter clean
     description: Run `flutter clean` in all packages
 
+  repair_cache:
+    exec: dart pub cache repair
+    description: Run 'dart pub cache repair' in all packages
+
   generate_files:
     run: |
       flutter pub global run melos exec \
@@ -21,3 +25,12 @@ scripts:
     packageFilters:
       dependsOn:
         - build_runner
+
+  generate_assets:
+    run: |
+      flutter pub global run melos exec \
+        "fluttergen -c pubspec.yaml"
+    description: Run `flutter gen-assets` in retailer
+    packageFilters:
+      dependsOn:
+        - flutter_gen_runner

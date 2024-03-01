@@ -164,14 +164,14 @@ class _HomeApiService implements HomeApiService {
   }
 
   @override
-  Future<HttpResponse<TopRatedMoviesEntity>> getGenreList(
+  Future<HttpResponse<GenreEntity>> getGenreList(
       {required CommonRequestOptions commonOptions}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<HttpResponse<TopRatedMoviesEntity>>(Options(
+        _setStreamType<HttpResponse<GenreEntity>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -187,7 +187,7 @@ class _HomeApiService implements HomeApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = TopRatedMoviesEntity.fromJson(_result.data!);
+    final value = GenreEntity.fromJson(_result.data!);
     final httpResponse = HttpResponse(value, _result);
     return httpResponse;
   }

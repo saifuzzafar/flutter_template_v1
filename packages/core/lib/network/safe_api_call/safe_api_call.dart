@@ -20,7 +20,27 @@ Future<Either<NetworkError, T>> safeApiCall<T>(Future<T> apiCall) async {
     if (throwable is DioException) {
       final DioException error = throwable;
       String? message;
-      if (error.response != null && error.response?.data != null) {
+
+      if (error.type == DioExceptionType.sendTimeout ||
+          error.type == DioExceptionType.receiveTimeout) {
+        // Timeout occurred
+        return Left(NetworkError(
+            httpError: 408,
+            message: "Request Timeout",
+            description: "The request to the server timed out",
+            cause: error));
+      } else if (error.type == DioExceptionType.badResponse) {
+        return Left(NetworkError(
+            httpError: 405, message: "Bad Response", cause: error));
+      } else if (error.response != null && error.response?.data != null) {
+        if (throwable.response!.statusCode! > 400) {
+          return Left(NetworkError(
+              httpError: throwable.response!.statusCode!,
+              message: "Server Connection Issue!",
+              description: "Server Connection Issue!",
+              cause: Exception("Server Connection Issue!")));
+        }
+      } else if (error.response != null && error.response?.data != null) {
         if (error.response!.data['message'] is List) {
           final List list = error.response!.data['message'];
           message = list.first.toString();

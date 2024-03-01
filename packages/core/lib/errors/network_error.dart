@@ -8,8 +8,11 @@ class NetworkError extends BaseError {
   NetworkError({
     required dynamic httpError,
     String message = "",
+    String description = "",
     required super.cause,
-  }) : super(error: ErrorInfo(code: httpError, message: message));
+  }) : super(
+            error: ErrorInfo(
+                code: httpError, message: message, description: description));
 
   @override
   String getFriendlyMessage() {
