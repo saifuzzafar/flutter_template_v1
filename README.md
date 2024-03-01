@@ -4,6 +4,8 @@
 
 ## Screenshots
 ​    <img src="screenshots/home.png" alt="dashboard" title="Home Screen"  width="150" />
+<img src="screenshots/home_tab.png" alt="dashboard" title="Home Screen"  width="300" />
+<img src="screenshots/home_web.png" alt="dashboard" title="Home Screen"  width="450" />
 
 ## Table Of Content
 
