@@ -7,31 +7,32 @@ import 'package:movie_app/features/home/presentation/widgets/upcoming_movies_wid
 
 /// This class [HomePageMobileView] which specifically used to render Mobile UI
 class HomePageMobileView extends StatelessWidget {
-  const HomePageMobileView({
-    super.key,
-  });
+  final double viewPort;
+  const HomePageMobileView({super.key, this.viewPort = 0.8});
 
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
-        NowPlayingMoviesView(),
-        SizedBox(
+      children: [
+        NowPlayingMoviesView(
+          viewPort: viewPort,
+        ),
+        const SizedBox(
           height: 10,
         ),
-        MovieGenreView(),
-        SizedBox(
+        const MovieGenreView(),
+        const SizedBox(
           height: 10,
         ),
-        TopRatedMoviesView(),
-        SizedBox(
+        const TopRatedMoviesView(),
+        const SizedBox(
           height: 10,
         ),
-        PopularMoviesView(),
-        SizedBox(
+        const PopularMoviesView(),
+        const SizedBox(
           height: 10,
         ),
-        UpcomingMoviesView()
+        const UpcomingMoviesView()
       ],
     );
   }

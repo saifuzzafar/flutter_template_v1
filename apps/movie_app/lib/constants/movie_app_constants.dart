@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 GlobalKey<NavigatorState> movieAppLevelKey = GlobalKey(debugLabel: 'app-key');
 
-class AppConstants {
+class MovieAppConstants {
   static const netFlexLogoUrl = 'assets/images/netflix_logo.png';
   static const avengerImageUrl = 'assets/images/avengers.jpg';
 

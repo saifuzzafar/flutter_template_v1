@@ -7,8 +7,6 @@ import 'package:movie_app/features/home/data/data_source/remote_data_source/home
 import 'package:movie_app/features/home/di/home_providers.dart';
 import 'package:movie_app/features/home/domain/repository/home_repository.dart';
 import 'package:movie_app/features/home/presentation/pages/home_page_mobile_view.dart';
-import 'package:movie_app/features/home/presentation/pages/home_page_tab_view.dart';
-import 'package:movie_app/features/home/presentation/pages/home_page_web_view.dart';
 
 /// This class [HomePage] which is UI screen which display interact with the user
 class HomePage extends BasePage<HomePageState> {
@@ -34,9 +32,17 @@ class HomePageState extends BaseStatefulPage {
   @override
   Widget buildView(BuildContext context) {
     return DeviceDetectorWidget(
-      webSiteView: () => const HomePageWebView(),
-      phoneView: () => const HomePageMobileView(),
-      tabletView: () => const HomePageTabView(),
+      webSiteView: () => const HomePageMobileView(
+        viewPort: 0.3,
+        key: Key("web"),
+      ),
+      phoneView: () => const HomePageMobileView(
+        key: Key("mobile"),
+      ),
+      tabletView: () => const HomePageMobileView(
+        viewPort: 0.3,
+        key: Key("tablet"),
+      ),
     );
   }
 

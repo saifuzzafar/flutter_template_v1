@@ -68,7 +68,7 @@ class ContentScroll extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
         child: Image.network(
-          AppConstants.imageBaseUrl + url,
+          MovieAppConstants.imageBaseUrl + url,
           fit: BoxFit.cover,
         ));
   }

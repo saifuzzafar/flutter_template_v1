@@ -1,13 +1,14 @@
 import 'package:core_flutter/common_widgets/app_error_popup.dart';
+import 'package:core_flutter/common_widgets/image_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/home/di/home_providers.dart';
 import 'package:movie_app/features/home/domain/model/home/now_playing_model.dart';
 import 'package:movie_app/features/home/presentation/cubit/now_playing_cubit.dart';
-import 'package:movie_app/features/home/presentation/widgets/image_utils.dart';
 
 class NowPlayingMoviesView extends StatefulWidget {
-  const NowPlayingMoviesView({super.key});
+  final double viewPort;
+  const NowPlayingMoviesView({super.key, this.viewPort = 0.8});
 
   @override
   NowPlayingMoviesViewState createState() => NowPlayingMoviesViewState();
@@ -22,8 +23,9 @@ class NowPlayingMoviesViewState extends State<NowPlayingMoviesView>
   @override
   void initState() {
     super.initState();
-
-    _pageController = PageController(initialPage: 1, viewportFraction: 0.8);
+    print("is mobile ${widget.viewPort}");
+    _pageController =
+        PageController(initialPage: 1, viewportFraction: widget.viewPort);
 
     _controller = AnimationController(
       vsync: this,
@@ -93,8 +95,8 @@ class NowPlayingMoviesViewState extends State<NowPlayingMoviesView>
         }
         return Center(
           child: SizedBox(
-            height: Curves.easeInOut.transform(value) * 270.0,
-            width: Curves.easeInOut.transform(value) * 400.0,
+            height: 270.0,
+            width: 400.0,
             child: widget,
           ),
         );
@@ -134,7 +136,7 @@ class NowPlayingMoviesViewState extends State<NowPlayingMoviesView>
                           nowPlayingMoviesModel.results![index].posterPath ??
                               "",
                           ImageType.network,
-                          BoxFit.cover,
+                          BoxFit.fitWidth,
                           height: double.infinity,
                           width: double.infinity,
                         )),

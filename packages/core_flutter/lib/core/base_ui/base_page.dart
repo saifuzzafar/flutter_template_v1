@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 /// Base class for creating pages in a Flutter application.
 ///
@@ -30,18 +31,26 @@ abstract class BaseStatefulPage extends BasePageState {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        key: _scaffoldKey,
-        backgroundColor: scaffoldBackgroundColor(),
-        appBar: buildAppbar(),
-        extendBodyBehindAppBar: extendBodyBehindAppBar(),
-        body: _buildScaffoldBody(context),
-        drawer: buildDrawer(),
-        floatingActionButton: floatingActionButton(),
-        drawerEnableOpenDragGesture: drawerEnableOpenDragGesture(),
-        bottomNavigationBar: buildBottomNavigationBar(),
-        bottomSheet: buildBottomSheet(),
+    return ResponsiveScaledBox(
+      width: ResponsiveValue<double>(context, conditionalValues: [
+        const Condition.between(start: 0, end: 600, value: 450),
+        const Condition.between(start: 601, end: 1000, value: 700),
+        const Condition.between(start: 1001, end: 1920, value: 1360),
+        const Condition.largerThan(breakpoint: 1921, value: 1921),
+      ]).value,
+      child: SafeArea(
+        child: Scaffold(
+          key: _scaffoldKey,
+          backgroundColor: scaffoldBackgroundColor(),
+          appBar: buildAppbar(),
+          extendBodyBehindAppBar: extendBodyBehindAppBar(),
+          body: _buildScaffoldBody(context),
+          drawer: buildDrawer(),
+          floatingActionButton: floatingActionButton(),
+          drawerEnableOpenDragGesture: drawerEnableOpenDragGesture(),
+          bottomNavigationBar: buildBottomNavigationBar(),
+          bottomSheet: buildBottomSheet(),
+        ),
       ),
     );
   }
