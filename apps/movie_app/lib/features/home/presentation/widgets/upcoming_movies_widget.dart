@@ -1,4 +1,5 @@
 import 'package:core_flutter/common_widgets/app_error_popup.dart';
+import 'package:core_flutter/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/home/di/home_providers.dart';
@@ -51,7 +52,7 @@ class _UpcomingMoviesViewState extends State<UpcomingMoviesView> {
 
     return ContentScroll(
       scrollObject: moviesList,
-      title: "S.of(context).Upcoming",
+      title: S.current.upComing,
     );
   }
 }

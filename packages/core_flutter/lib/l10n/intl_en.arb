@@ -2,5 +2,6 @@
   "@@locale": "en",
   "appName" : "Movie app",
   "ottApp" : "OTT app",
-  "topRated" : "Top Rated"
+  "topRated" : "Top Rated",
+  "upComing" : "Up Coming"
 }

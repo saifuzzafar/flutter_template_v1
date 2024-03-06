@@ -21,7 +21,6 @@ class HomePageState extends BaseStatefulPage {
   @override
   void initState() {
     super.initState();
-
     nowPlayingCubit.fetchNowPlaying();
     genreCubit.fetchGenre();
     topRatedMoviesCubit.fetchTopRated();

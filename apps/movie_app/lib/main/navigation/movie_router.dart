@@ -5,6 +5,7 @@ import 'package:movie_app/main/navigation/route_path.dart';
 class MovieRouter {
   static GoRouter setupRouter() {
     return GoRouter(
+      initialLocation: RoutePaths.home,
       // Define your routes here
       routes: [
         // Home route

@@ -79,6 +79,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Up Coming`
+  String get upComing {
+    return Intl.message(
+      'Up Coming',
+      name: 'upComing',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
