@@ -9,25 +9,25 @@ import 'package:path_provider/path_provider.dart';
 /// Singleton class for managing database connections related to home data.
 ///
 /// This class follows the Singleton design pattern, ensuring that only one
-/// instance of [HomeDbService] exists throughout the application.
+/// instance of [HiveHomeDbService] exists throughout the application.
 
-class HomeDbService {
-  /// Private static instance variable to hold the single instance of [HomeDbService].
+class HiveHomeDbService {
+  /// Private static instance variable to hold the single instance of [HiveHomeDbService].
   ///
-  /// This variable is initialized with an instance of [HomeDbService] created
+  /// This variable is initialized with an instance of [HiveHomeDbService] created
   /// using the `_internal()` constructor.
-  static final HomeDbService connect = HomeDbService._internal();
+  static final HiveHomeDbService connect = HiveHomeDbService._internal();
 
-  /// Private constructor for [HomeDbService].
+  /// Private constructor for [HiveHomeDbService].
   ///
   /// This constructor is marked as private to prevent direct instantiation
-  /// of [HomeDbService] instances from outside the class.
-  HomeDbService._internal();
+  /// of [HiveHomeDbService] instances from outside the class.
+  HiveHomeDbService._internal();
 
   static bool _isHiveInitialised = false;
   static MovieDao? _movieDao; // Data Access Object
 
-  factory HomeDbService(
+  factory HiveHomeDbService(
     MovieDao movieDao,
   ) {
     return connect;
