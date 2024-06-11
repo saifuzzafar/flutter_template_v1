@@ -30,8 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
+  flutter_localizations:
+    sdk: flutter
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -48,6 +48,8 @@ dependencies:
   retrofit_generator: ^8.1.0
   go_router: ^13.2.0
   responsive_framework: ^1.4.0
+  hive: ^2.2.3
+  path_provider: ^2.0.9
   json_annotation: ^4.8.1
 
 dev_dependencies:
@@ -55,6 +57,8 @@ dev_dependencies:
     sdk: flutter
   build_runner: any
   json_serializable: ^6.7.1
+  flutter_gen_runner: ^5.4.0
+  hive_generator: ^2.0.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -73,6 +77,24 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/svg/
+    - assets/png/
+
+
+flutter_intl:
+  enabled: true
+  class_name: SMovie
+
+flutter_gen: #assets generator config
+  output: lib/gen/
+  integrations:
+    flutter_svg: true
+  assets:
+    enabled: true
+    outputs:
+      class_name: MovieAssets
+      package_parameter_enabled: true
 
   # To add assets to your application, add an assets section, like this:
   # assets:

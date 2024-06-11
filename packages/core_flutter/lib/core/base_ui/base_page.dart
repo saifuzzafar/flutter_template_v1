@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-/// Base class for creating pages in a Flutter application.
-///
-/// Subclasses should extend [BasePageState] and provide their own state class
-/// by specifying the type parameter `T`.
-///
-/// Provides common page features such as scaffold setup, app bar, drawer,
-/// bottom navigation bar, etc.
-
 abstract class BasePage<T extends BasePageState> extends StatefulWidget {
   const BasePage({super.key});
 

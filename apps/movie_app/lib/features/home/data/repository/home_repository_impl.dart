@@ -1,5 +1,6 @@
 import 'package:core/errors/network_error.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:movie_app/features/home/data/data_source/local_data_source/local_data_source.dart';
 import 'package:movie_app/features/home/data/data_source/remote_data_source/home_remote_data_source.dart';
 import 'package:movie_app/features/home/domain/model/home/genre_model.dart';
 import 'package:movie_app/features/home/domain/model/home/movie_details_model.dart';
@@ -13,8 +14,9 @@ import 'package:movie_app/features/home/domain/use_case/base_movie_params.dart';
 /// This class [HomeRepositoryImpl] is the implementation of [HomeRepository]
 class HomeRepositoryImpl implements HomeRepository {
   final HomeRemoteDataSource _homeRemoteDataSource;
+  final HomeLocalDataSource _homeLocalDataSource;
 
-  HomeRepositoryImpl(this._homeRemoteDataSource);
+  HomeRepositoryImpl(this._homeRemoteDataSource, this._homeLocalDataSource);
 
   @override
   Future<Either<NetworkError, GenreListModel>> getGenreList(
