@@ -17,9 +17,7 @@ class AppErrorPopup extends StatelessWidget {
           onPressed: () {
             if (onDismissed != null) {
               onDismissed!();
-            } else {
-              Navigator.of(context).pop();
-            }
+            } else {}
           },
           child: const Text("OK"),
         ),
