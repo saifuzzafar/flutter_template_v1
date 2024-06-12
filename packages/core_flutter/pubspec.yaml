@@ -15,6 +15,7 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.10+1
   responsive_framework: ^1.4.0
+  intl: any
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +28,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+
   uses-material-design: true
 
   assets:
@@ -54,8 +56,16 @@ flutter:
       fonts:
         - asset: assets/fonts/inter/Inter-Bold.ttf
           weight: 700
+
+
 flutter_intl:
   enabled: true
+  class_name: SCommon
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter-Regular.ttf
+          weight: 400
 
 flutter_gen: #assets generator config
   output: lib/gen/
@@ -70,3 +80,7 @@ flutter_gen: #assets generator config
     enabled: true
     outputs:
       class_name: AppFontFamily
+
+
+
+

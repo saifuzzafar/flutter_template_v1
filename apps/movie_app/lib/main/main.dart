@@ -1,6 +1,6 @@
-import 'package:core_flutter/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:movie_app/generated/l10n.dart';
 import 'package:movie_app/main/flavor.dart';
 import 'package:movie_app/main/navigation/movie_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -43,13 +43,12 @@ class MovieApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: flavor.appTitle,
       localizationsDelegates: const [
-        S.delegate,
+        SMovie.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: S.delegate.supportedLocales,
-      // home: const HomePage(),
+      supportedLocales: SMovie.delegate.supportedLocales,
     );
   }
 }

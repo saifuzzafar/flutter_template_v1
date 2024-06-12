@@ -2,11 +2,6 @@
 
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/saifuzzafar/flutter_template_v1) [![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/saifuzzafar/flutter_template_v1)
 
-## Screenshots
-​    <img src="screenshots/home.png" alt="dashboard" title="Home Screen"  width="150" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="screenshots/home_tab.png" alt="dashboard" title="Home Screen"  width="300" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="screenshots/home_web.png" alt="dashboard" title="Home Screen"  width="450" />
-
 ## Table Of Content
 
 - [Overview](#overview)
