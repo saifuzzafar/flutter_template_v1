@@ -6,7 +6,7 @@ class MovieAppConstants {
   static const netFlexLogoUrl = 'assets/images/netflix_logo.png';
   static const avengerImageUrl = 'assets/images/avengers.jpg';
 
-  static const String API_KEY = "b050f1194fbede184f8dc1b98fd14160";
+  static const String apiKey = "b050f1194fbede184f8dc1b98fd14160";
   static const String imageBaseUrl = 'https://image.tmdb.org/t/p/original';
 
   //Unit testing mock file routes

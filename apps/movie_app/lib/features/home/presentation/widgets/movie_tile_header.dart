@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class MovieTileHeader extends StatelessWidget {
   final String title;
 
-  MovieTileHeader(this.title);
+  const MovieTileHeader(this.title, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class MovieTileHeader extends StatelessWidget {
           style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
         ),
         GestureDetector(
-          onTap: () => print("tile tapped $title"),
+          onTap: () {},
           child: const Padding(
             padding: EdgeInsets.only(left: 50),
             child: Icon(

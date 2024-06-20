@@ -1,7 +1,7 @@
 import 'package:core_flutter/utils/screen_dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/constants/movie_app_constants.dart';
-import 'package:movie_app/features/home/domain/model/home/movie_Item.dart';
+import 'package:movie_app/features/home/domain/model/home/movie_item.dart';
 import 'package:movie_app/features/home/presentation/widgets/movie_tile_header.dart';
 
 class ContentScroll extends StatelessWidget {
@@ -26,7 +26,7 @@ class ContentScroll extends StatelessWidget {
 
   Widget _buildSeriesList() {
     //final dimensions
-    return Container(
+    return SizedBox(
         height: ScreenDimensions.tileHeight, child: _buildSeriesElements());
   }
 

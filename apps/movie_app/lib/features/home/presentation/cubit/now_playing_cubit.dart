@@ -37,8 +37,8 @@ class NowPlayingMoviesInitialState extends NowPlayingMoviesState {}
 class NowPlayingMoviesLoadingState extends NowPlayingMoviesState {}
 
 class NowPlayingMoviesErrorState extends NowPlayingMoviesState {
-  String errorMessage;
-  NowPlayingMoviesErrorState(this.errorMessage);
+  final String errorMessage;
+  const NowPlayingMoviesErrorState(this.errorMessage);
 }
 
 class NowPlayingMoviesDataState extends NowPlayingMoviesState {

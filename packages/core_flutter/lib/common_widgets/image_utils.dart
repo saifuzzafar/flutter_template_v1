@@ -23,7 +23,7 @@ class ImageUtils extends StatelessWidget {
           width: width,
           fit: fit,
         );
-        break;
+
       case ImageType.network:
         return Image.network(
           AppConstants.imageBaseUrl + imageUrl,
@@ -31,11 +31,10 @@ class ImageUtils extends StatelessWidget {
           height: height,
           width: width,
         );
-        break;
 
       case ImageType.sdCard:
         return Image.file(File(imageUrl));
-        break;
+
       case ImageType.image:
         return Image(
           image: AssetImage(imageUrl),
@@ -43,11 +42,9 @@ class ImageUtils extends StatelessWidget {
           width: width,
           fit: fit,
         );
-        break;
 
       default:
         return Image.asset(imageUrl);
-        break;
     }
   }
 }

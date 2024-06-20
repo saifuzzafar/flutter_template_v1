@@ -1,6 +1,8 @@
 {
   "@@locale": "en",
-  "appName" : "ott"
+  "appName" : "ott",
+  "topRated" : "Top Rated",
+  "upComing" : "Up Coming"
 
 
 }

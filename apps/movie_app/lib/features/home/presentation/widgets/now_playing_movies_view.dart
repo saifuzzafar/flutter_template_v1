@@ -150,8 +150,7 @@ class NowPlayingMoviesViewState extends State<NowPlayingMoviesView>
               child: SizedBox(
                 width: 250.0,
                 child: Text(
-                  nowPlayingMoviesModel.results![index].title!.toUpperCase() ??
-                      "",
+                  nowPlayingMoviesModel.results![index].title!.toUpperCase(),
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,

@@ -1,11 +1,11 @@
 import 'package:core_flutter/common_widgets/app_error_popup.dart';
-import 'package:core_flutter/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/home/di/home_providers.dart';
-import 'package:movie_app/features/home/domain/model/home/movie_Item.dart';
+import 'package:movie_app/features/home/domain/model/home/movie_item.dart';
 import 'package:movie_app/features/home/presentation/cubit/up_coming_cubit.dart';
 import 'package:movie_app/features/home/presentation/widgets/content_scroll.dart';
+import 'package:movie_app/generated/l10n.dart';
 
 class UpcomingMoviesView extends StatefulWidget {
   const UpcomingMoviesView({super.key});
@@ -52,7 +52,7 @@ class _UpcomingMoviesViewState extends State<UpcomingMoviesView> {
 
     return ContentScroll(
       scrollObject: moviesList,
-      title: S.current.upComing,
+      title: SMovie.current.upComing,
     );
   }
 }

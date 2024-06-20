@@ -59,6 +59,26 @@ class SMovie {
       args: [],
     );
   }
+
+  /// `Top Rated`
+  String get topRated {
+    return Intl.message(
+      'Top Rated',
+      name: 'topRated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Up Coming`
+  String get upComing {
+    return Intl.message(
+      'Up Coming',
+      name: 'upComing',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<SMovie> {

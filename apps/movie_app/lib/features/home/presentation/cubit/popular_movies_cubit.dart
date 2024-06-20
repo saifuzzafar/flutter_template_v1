@@ -38,8 +38,8 @@ class PopularMoviesInitialState extends PopularMoviesState {}
 class PopularMoviesLoadingState extends PopularMoviesState {}
 
 class PopularMoviesErrorState extends PopularMoviesState {
-  String errorMessage;
-  PopularMoviesErrorState(this.errorMessage);
+  final String errorMessage;
+  const PopularMoviesErrorState(this.errorMessage);
 }
 
 class PopularMoviesDataState extends PopularMoviesState {

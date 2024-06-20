@@ -62,8 +62,8 @@ class MovieGenreViewState extends State<MovieGenreView> {
                     const Color(0xFF9E1F28).withOpacity(0.5),
                   ],
                 ),
-                boxShadow: [
-                  const BoxShadow(
+                boxShadow: const [
+                  BoxShadow(
                     color: Color(0xFF9E1F28),
                     offset: Offset(0.0, 2.0),
                     blurRadius: 6.0,
@@ -74,18 +74,11 @@ class MovieGenreViewState extends State<MovieGenreView> {
                 alignment: Alignment.center,
                 children: <Widget>[
                   Opacity(
-                    opacity: 0.25,
+                    opacity: 0.6,
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: AppAssets.svg.greenTick.svg()
-
-                        // Image(
-                        //   // image: AssetImage(AppConstants.avengerImageUrl),
-                        //   image: AssetImage(AppConstants.avengerImageUrl),
-                        //   width: 160,
-                        //   fit: BoxFit.cover,
-                        // ),
-                        ),
+                        child: AppAssets.png.avengers.image(
+                            fit: BoxFit.fitWidth, width: double.infinity)),
                   ),
                   Text(
                     model.genres[index].name!.toUpperCase(),
