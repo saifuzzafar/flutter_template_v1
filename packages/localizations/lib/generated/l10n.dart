@@ -12,42 +12,42 @@ import 'intl/messages_all.dart';
 // ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
 // ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
 
-class SMovie {
-  SMovie();
+class S {
+  S();
 
-  static SMovie? _current;
+  static S? _current;
 
-  static SMovie get current {
+  static S get current {
     assert(_current != null,
-        'No instance of SMovie was loaded. Try to initialize the SMovie delegate before accessing SMovie.current.');
+        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
-  static Future<SMovie> load(Locale locale) {
+  static Future<S> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false)
         ? locale.languageCode
         : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      final instance = SMovie();
-      SMovie._current = instance;
+      final instance = S();
+      S._current = instance;
 
       return instance;
     });
   }
 
-  static SMovie of(BuildContext context) {
-    final instance = SMovie.maybeOf(context);
+  static S of(BuildContext context) {
+    final instance = S.maybeOf(context);
     assert(instance != null,
-        'No instance of SMovie present in the widget tree. Did you add SMovie.delegate in localizationsDelegates?');
+        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
     return instance!;
   }
 
-  static SMovie? maybeOf(BuildContext context) {
-    return Localizations.of<SMovie>(context, SMovie);
+  static S? maybeOf(BuildContext context) {
+    return Localizations.of<S>(context, S);
   }
 
   /// `ott`
@@ -59,9 +59,29 @@ class SMovie {
       args: [],
     );
   }
+
+  /// `Top Rated`
+  String get topRated {
+    return Intl.message(
+      'Top Rated',
+      name: 'topRated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Up Coming`
+  String get upComing {
+    return Intl.message(
+      'Up Coming',
+      name: 'upComing',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
-class AppLocalizationDelegate extends LocalizationsDelegate<SMovie> {
+class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
@@ -73,7 +93,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<SMovie> {
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
   @override
-  Future<SMovie> load(Locale locale) => SMovie.load(locale);
+  Future<S> load(Locale locale) => S.load(locale);
   @override
   bool shouldReload(AppLocalizationDelegate old) => false;
 
