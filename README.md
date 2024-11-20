@@ -214,12 +214,11 @@ the following patterns:
 
 ## Libraries & Tools Used
 
-- Dependency Injection - [GetIt](https://pub.dev/packages/get_it)
 - Network - [Retrofit](https://pub.dev/packages/retrofit)
 - Database - [Hive](https://pub.dev/packages/hive)
-- Navigation - [Go Router](https://pub.dev/packages/go_router)
+- Navigation - [Auto Router](https://pub.dev/packages/auto_route)
 - Localisation - [Flutter Intl](https://www.jetbrains.com/help/idea/managing-plugins.html)
-- [Responsive Farmework](https://pub.dev/packages/responsive_framework)
+- Responsivness [Responsive Farmework](https://pub.dev/packages/responsive_framework)
 
 ## Modules
 
@@ -232,12 +231,13 @@ automatically, here is a list of available modules:
 | ------------------------------------------------------ | ------------------------------------------------------------ |
 | [app](./app)                                           | A module containing apps |
 | [core](./core)                                         | A module containing core business implementation of the product |
-| [dependency-injection](./dependency-injection)         | A module that contains classes to achieve DI across multiple modules  based on `getIt` |
+| [storage_util](./dependency-injection)                 | A module that contains Hive and secure storage as storage option |
 | [localisation](./localisation)                         | A module containing translation data          |
 
 ## Ongoing Enhancements
 - Error/exception handling.
 - Localisation improvement.
+- Local database 
 - Model class segregation.
 - Code generator to save time.
 - Assets management.
