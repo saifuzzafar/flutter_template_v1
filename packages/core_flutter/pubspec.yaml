@@ -14,8 +14,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   responsive_framework: ^1.4.0
   intl: any
-  flutter_localizations:
-    sdk: flutter
+
 
 dev_dependencies:
   flutter_test:
@@ -31,10 +30,6 @@ flutter:
   assets:
     - assets/svg/
     - assets/png/
-
-flutter_intl:
-  enabled: true
-  class_name: SCommon
 
 flutter_gen: #assets generator config
   output: lib/gen/

@@ -11,7 +11,7 @@ Future<Either<DatabaseError, T>> safeDbCall<T>(Future<T> dbCall) async {
       case AppLocalExceptionType:
         if (exception is AppLocalExceptionType) {
           switch (exception) {
-            case AppLocalExceptionType.NO_USER_FOUND:
+            case AppLocalExceptionType.noUserFound:
               return Left(
                 DatabaseError(
                   message: exception.toString(),
@@ -65,7 +65,7 @@ class AppLocalExceptionType {
 
   const AppLocalExceptionType._(this._value);
 
-  int get value => this._value;
+  int get value => _value;
 
-  static const AppLocalExceptionType NO_USER_FOUND = AppLocalExceptionType._(2);
+  static const AppLocalExceptionType noUserFound = AppLocalExceptionType._(2);
 }
