@@ -19,7 +19,7 @@ class LocalStorage implements Storage {
   }
 
   @override
-  void setCustomItem<T>({required String key, required T value}) async {
+  Future<void> setCustomItem<T>({required String key, required T value}) async {
     await box?.put(key, value);
   }
 
@@ -44,7 +44,7 @@ class LocalStorage implements Storage {
   }
 
   @override
-  void deleteItem({required String key}) {
+  Future<void> deleteItem({required String key}) async {
     box?.delete(key);
   }
 

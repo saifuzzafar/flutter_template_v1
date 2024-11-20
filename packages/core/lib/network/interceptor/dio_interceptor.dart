@@ -6,7 +6,7 @@ import 'package:dio/io.dart';
 import '../transformer/dio_transformer.dart';
 import 'dio_base_option.dart';
 
-class DioInterceptor {
+class DioHelper {
   static Dio createDio(DioBaseOption dioBaseOption) {
     final dio = Dio();
 

@@ -40,9 +40,10 @@ dependencies:
     path: ../../packages/core
   localizations:
     path: ../../packages/localizations
+  storage_util:
+    path: ../../packages/storage_util
   retrofit: ^4.1.0
   flutter_bloc: ^8.1.4
-  get_it: ^7.6.7
   dio: ^5.4.1
   fpdart: ^1.1.0
   retrofit_generator: ^8.1.0

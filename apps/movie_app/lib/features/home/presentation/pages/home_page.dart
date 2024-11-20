@@ -1,12 +1,7 @@
 import 'package:core_flutter/core/base_ui/base_page.dart';
 import 'package:core_flutter/core/base_ui/device_detector_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/di/app_provider.dart';
-import 'package:movie_app/features/home/data/api_service/home_api_service.dart';
-import 'package:movie_app/features/home/data/data_source/remote_data_source/home_remote_data_source.dart';
-import 'package:movie_app/features/home/domain/repository/home_repository.dart';
-import 'package:movie_app/features/home/domain/use_case/home_use_case.dart';
-import 'package:movie_app/features/home/presentation/cubit/home_cubit.dart';
+import 'package:movie_app/features/home/di/home_providers.dart';
 import 'package:movie_app/features/home/presentation/pages/home_page_mobile_view.dart';
 import 'package:movie_app/features/home/presentation/pages/home_page_tab_view.dart';
 import 'package:movie_app/features/home/presentation/pages/home_page_web_view.dart';
@@ -22,6 +17,12 @@ class HomePage extends BasePage<HomePageState> {
 /// This class [HomePageState] which consume by HomePage as page state
 class HomePageState extends BaseStatefulPage {
   @override
+  void initState() {
+    super.initState();
+    HomeProviders.instance();
+  }
+
+  @override
   Widget buildView(BuildContext context) {
     return DeviceDetectorWidget(
       webSiteView: () => const HomePageWebView(),
@@ -32,11 +33,6 @@ class HomePageState extends BaseStatefulPage {
 
   @override
   void dispose() {
-    getIt.unregister<HomeApiService>();
-    getIt.unregister<HomeRemoteDataSource>();
-    getIt.unregister<HomeRepository>();
-    getIt.unregister<HomeUseCase>();
-    getIt.unregister<HomeCubit>();
     super.dispose();
   }
 }

@@ -3,7 +3,7 @@ import "dart:convert";
 import "package:flutter_secure_storage/flutter_secure_storage.dart";
 import "package:hive_flutter/hive_flutter.dart";
 import "package:storage_util/local_storage.dart";
-import "package:storage_util/model/bank_account.dart";
+import "package:storage_util/model/movie_db_entity.dart";
 import "package:storage_util/secure_storage.dart";
 
 /// Storage is prototype/blueprint for [LocalStorage] and [SecureStorage]
@@ -26,7 +26,7 @@ abstract class Storage {
   /// For [FlutterSecureStorage] use [setItem] method with [jsonEncode]
   /// and [getItem] method with [jsonDecode]
   /// Then call [setCustomItem] method
-  void setCustomItem<T>({required String key, required T value});
+  Future<void> setCustomItem<T>({required String key, required T value});
 
   /// Get String item from Storage
   Future<String?> getItem({required String key});
@@ -47,7 +47,7 @@ abstract class Storage {
   Future<Map<String, String>?> getAllItem();
 
   /// Delete respective item based on key from Storage
-  void deleteItem({required String key});
+  Future<void> deleteItem({required String key});
 
   /// Clear Storage
   void clear();
@@ -123,5 +123,5 @@ Future<void> createBox(String boxName) {
 /// opening box using hive
 /// }
 void _registerAdapters() {
-  Hive.registerAdapter<BankAccount>(BankAccountAdapter());
+  Hive.registerAdapter<MovieDbEntity>(MovieDbEntityAdapter());
 }
