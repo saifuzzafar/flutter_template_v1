@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:core_flutter/core/base_ui/base_page.dart';
 import 'package:core_flutter/core/base_ui/device_detector_widget.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:movie_app/features/home/presentation/pages/home_page_tab_view.da
 import 'package:movie_app/features/home/presentation/pages/home_page_web_view.dart';
 
 /// This class [HomePage] which is UI screen which display interact with the user
+@RoutePage()
 class HomePage extends BasePage<HomePageState> {
   const HomePage({super.key});
 

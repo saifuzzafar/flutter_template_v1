@@ -1,7 +1,6 @@
 import 'package:core/data_base/safe_db_call.dart';
 import 'package:core/errors/database_error.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:hive/hive.dart';
 import 'package:movie_app/features/home/di/home_providers.dart';
 import 'package:movie_app/features/home/domain/model/home/movie_model.dart';
 import 'package:storage_util/box_constants/db_constants.dart';

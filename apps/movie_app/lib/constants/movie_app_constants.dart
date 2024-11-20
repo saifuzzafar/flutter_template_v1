@@ -1,3 +1,6 @@
 import 'package:flutter/material.dart';
 
-GlobalKey<NavigatorState> movieAppLevelKey = GlobalKey(debugLabel: 'app-key');
+class MovieAppConstants {
+  static final GlobalKey<NavigatorState> navigatorKey =
+      GlobalKey<NavigatorState>();
+}
