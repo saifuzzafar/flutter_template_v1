@@ -9,7 +9,9 @@ class TopRatedMoviesCubit extends Cubit<TopRatedMoviesState> {
 
   TopRatedMoviesCubit(TopRatedMoviesUseCase topRatedMoviesUseCase)
       : _topRatedMoviesUseCase = topRatedMoviesUseCase,
-        super(TopRatedMoviesInitialState());
+        super(TopRatedMoviesInitialState()) {
+    fetchTopRated();
+  }
 
   fetchTopRated() async {
     emit(TopRatedMoviesLoadingState());

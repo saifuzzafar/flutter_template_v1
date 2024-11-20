@@ -2,7 +2,6 @@ import 'package:core_flutter/common_widgets/app_error_popup.dart';
 import 'package:core_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/features/home/di/home_providers.dart';
 import 'package:movie_app/features/home/domain/model/home/genre_model.dart';
 import 'package:movie_app/features/home/presentation/cubit/genere_cubit.dart';
 
@@ -16,7 +15,6 @@ class MovieGenreViewState extends State<MovieGenreView> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GenreCubit, GenreState>(
-      bloc: genreCubit,
       builder: (context, state) {
         if (state is GenreDataState) {
           return _buildMovieCategory(

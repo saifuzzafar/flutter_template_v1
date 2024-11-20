@@ -1,11 +1,10 @@
 import 'package:core_flutter/common_widgets/app_error_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/features/home/di/home_providers.dart';
+import 'package:localizations/generated/l10n.dart';
 import 'package:movie_app/features/home/domain/model/home/movie_item.dart';
 import 'package:movie_app/features/home/presentation/cubit/top_rated_cubit.dart';
 import 'package:movie_app/features/home/presentation/widgets/content_scroll.dart';
-import 'package:movie_app/generated/l10n.dart';
 
 class TopRatedMoviesView extends StatefulWidget {
   const TopRatedMoviesView({super.key});
@@ -23,7 +22,6 @@ class _TopRatedMoviesViewState extends State<TopRatedMoviesView> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopRatedMoviesCubit, TopRatedMoviesState>(
-      bloc: topRatedMoviesCubit,
       builder: (context, state) {
         if (state is TopRatedMoviesDataState) {
           return _buildTopRatedMoviesList(state: state, context: context);
@@ -52,7 +50,7 @@ class _TopRatedMoviesViewState extends State<TopRatedMoviesView> {
 
     return ContentScroll(
       scrollObject: moviesList,
-      title: SMovie.of(context).topRated,
+      title: S.of(context).topRated,
     );
   }
 }

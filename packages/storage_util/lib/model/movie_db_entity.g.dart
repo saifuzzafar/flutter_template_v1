@@ -1,38 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bank_account.dart';
+part of 'movie_db_entity.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class BankAccountAdapter extends TypeAdapter<BankAccount> {
+class MovieDbEntityAdapter extends TypeAdapter<MovieDbEntity> {
   @override
-  final int typeId = 39;
+  final int typeId = 1;
 
   @override
-  BankAccount read(BinaryReader reader) {
+  MovieDbEntity read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return BankAccount(
-      fields[0] as String,
-      fields[1] as int,
-      fields[2] as int,
+    return MovieDbEntity(
+      movieId: fields[0] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, BankAccount obj) {
+  void write(BinaryWriter writer, MovieDbEntity obj) {
     writer
-      ..writeByte(3)
-      ..writeByte(0)
-      ..write(obj.currency)
       ..writeByte(1)
-      ..write(obj.myMoney)
-      ..writeByte(2)
-      ..write(obj.mob);
+      ..writeByte(0)
+      ..write(obj.movieId);
   }
 
   @override
@@ -41,7 +35,7 @@ class BankAccountAdapter extends TypeAdapter<BankAccount> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is BankAccountAdapter &&
+      other is MovieDbEntityAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

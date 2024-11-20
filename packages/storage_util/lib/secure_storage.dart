@@ -16,7 +16,7 @@ class SecureStorage implements Storage {
   }
 
   @override
-  void deleteItem({required String key}) {
+  Future<void> deleteItem({required String key}) async {
     secureStorage.delete(key: key);
   }
 
@@ -26,7 +26,7 @@ class SecureStorage implements Storage {
   }
 
   @override
-  void setCustomItem<T>({required String key, required T value}) {
+  Future<void> setCustomItem<T>({required String key, required T value}) {
     throw Exception(
         "Secure Storage is not have CustomObject support it present only as part of LocalStorage."
         "if want to put custom object kindly use setItem with jsonEncode");

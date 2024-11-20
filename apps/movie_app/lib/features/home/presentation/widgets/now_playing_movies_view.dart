@@ -2,7 +2,6 @@ import 'package:core_flutter/common_widgets/app_error_popup.dart';
 import 'package:core_flutter/common_widgets/image_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/features/home/di/home_providers.dart';
 import 'package:movie_app/features/home/domain/model/home/now_playing_model.dart';
 import 'package:movie_app/features/home/presentation/cubit/now_playing_cubit.dart';
 
@@ -38,7 +37,6 @@ class NowPlayingMoviesViewState extends State<NowPlayingMoviesView>
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NowPlayingMoviesCubit, NowPlayingMoviesState>(
-      bloc: nowPlayingCubit,
       builder: (BuildContext context, state) {
         if (state is NowPlayingMoviesDataState) {
           return _buildCoverPageList(

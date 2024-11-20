@@ -2,6 +2,7 @@ import 'package:core/errors/database_error.dart';
 import 'package:flutter/services.dart';
 import 'package:fpdart/fpdart.dart';
 
+// ignore_for_file: constant_identifier_names
 Future<Either<DatabaseError, T>> safeDbCall<T>(Future<T> dbCall) async {
   try {
     final originalResponse = await dbCall;

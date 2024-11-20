@@ -8,7 +8,9 @@ class NowPlayingMoviesCubit extends Cubit<NowPlayingMoviesState> {
   final NowPlayingUseCase _nowPlayingUseCase;
   NowPlayingMoviesCubit(NowPlayingUseCase nowPlayingUseCase)
       : _nowPlayingUseCase = nowPlayingUseCase,
-        super(NowPlayingMoviesInitialState());
+        super(NowPlayingMoviesInitialState()) {
+    fetchNowPlaying();
+  }
 
   fetchNowPlaying() async {
     emit(NowPlayingMoviesLoadingState());

@@ -8,7 +8,9 @@ class GenreCubit extends Cubit<GenreState> {
   final GenreListUseCase _genreListUseCase;
   GenreCubit(GenreListUseCase genereCubit)
       : _genreListUseCase = genereCubit,
-        super(GenreInitialState());
+        super(GenreInitialState()) {
+    fetchGenre();
+  }
 
   fetchGenre() async {
     emit(GenreLoadingState());

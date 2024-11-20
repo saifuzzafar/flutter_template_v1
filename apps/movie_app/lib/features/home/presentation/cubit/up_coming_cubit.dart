@@ -8,7 +8,9 @@ class UpcomingMoviesCubit extends Cubit<UpcomingMoviesState> {
   final UpComingMoviesUseCase _upComingMoviesUseCase;
   UpcomingMoviesCubit(UpComingMoviesUseCase upComingMoviesUseCase)
       : _upComingMoviesUseCase = upComingMoviesUseCase,
-        super(UpcomingMoviesInitialState());
+        super(UpcomingMoviesInitialState()) {
+    fetchUpcomingMovies();
+  }
 
   fetchUpcomingMovies() async {
     emit(UpcomingMoviesLoadingState());

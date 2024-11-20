@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:movie_app/generated/l10n.dart';
+import 'package:localizations/generated/l10n.dart';
+import 'package:movie_app/constants/movie_app_constants.dart';
 import 'package:movie_app/main/flavor.dart';
-import 'package:movie_app/main/navigation/movie_router.dart';
+import 'package:movie_app/main/navigation/movie_app_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 import '../di/app_provider.dart';
@@ -27,7 +28,7 @@ class MovieApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: MovieRouter.setupRouter(),
+      routerConfig: MovieAppRouter(MovieAppConstants.navigatorKey).config(),
       builder: (context, child) {
         return ResponsiveBreakpoints.builder(
           child: child!,
@@ -43,12 +44,12 @@ class MovieApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: flavor.appTitle,
       localizationsDelegates: const [
-        SMovie.delegate,
+        S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: SMovie.delegate.supportedLocales,
+      supportedLocales: S.delegate.supportedLocales,
     );
   }
 }

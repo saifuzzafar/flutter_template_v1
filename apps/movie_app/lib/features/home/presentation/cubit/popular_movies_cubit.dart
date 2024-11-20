@@ -9,7 +9,9 @@ class PopularMoviesCubit extends Cubit<PopularMoviesState> {
 
   PopularMoviesCubit(PopularMoviesUseCase popularMoviesUseCase)
       : _popularMoviesUseCase = popularMoviesUseCase,
-        super(PopularMoviesInitialState());
+        super(PopularMoviesInitialState()) {
+    fetchPopularMovies();
+  }
 
   fetchPopularMovies() async {
     emit(PopularMoviesLoadingState());
