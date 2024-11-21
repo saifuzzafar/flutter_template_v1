@@ -2,6 +2,6 @@
   "@@locale": "en",
   "appName" : "ott",
   "topRated" : "Top Rated",
-  "upComing" : "Up Coming"
-
+  "upComing" : "Up Coming",
+  "popular":"Popular"
 }
