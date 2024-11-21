@@ -236,13 +236,12 @@ automatically, here is a list of available modules:
 
 ## Ongoing Enhancements
 - Error/exception handling.
+- Fastlan(android,ios).
+- Updation of responsiveness.
 - Localisation improvement.
-- Local database 
 - Model class segregation.
 - Code generator to save time.
-- Assets management.
-- Use riverpod instead of getIt for DI.
-- Use riverpod instead of Cubit.
+
   
 ## Upcoming Improvements
 
